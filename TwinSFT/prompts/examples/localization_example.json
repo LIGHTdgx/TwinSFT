@@ -1,0 +1,12 @@
+[
+ {
+  "instruction": "以下Go代码存在安全漏洞。请根据每行前缀的行号定位漏洞所在的代码行，最后一行输出\"漏洞行：第X行\"或\"漏洞行：第X-Y行\"（若有多段用逗号分隔，至多两段）。",
+  "input": "1 func TestBuilder_BuildBootstrapStatsConfig(t *testing.T) {\n2 \tb := New(\"local-grpc\", \"local-http\", filemgr.NewManager(), nil)\n3 \tt.Run(\"valid\", func(t *testing.T) {\n4 \t\tstatsCfg, err := b.BuildBootstrapStatsConfig(&config.Config{\n5 \t\t\tOptions: &config.Options{\n6 \t\t\t\tServices: \"all\",\n7 \t\t\t},\n8 \t\t})\n9 \t\tassert.NoError(t, err)\n10 \t\ttestutil.AssertProtoJSONEqual(t, `\n11 \t\t\t{\n12 \t\t\t\t\"statsTags\": [{\n13 \t\t\t\t\t\"tagName\": \"service\",\n14 \t\t\t\t\t\"fixedValue\": \"pomerium\"\n15 \t\t\t\t}]\n16 \t\t\t}\n17 \t\t`, statsCfg)\n18 \t})\n19 }",
+  "output": "漏洞行：第3行",
+  "task_type": "locate_line",
+  "meta": {
+   "lang": "Go",
+   "src": "reef2_loc"
+  }
+ }
+]
