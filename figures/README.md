@@ -2,7 +2,7 @@
 
 | Figure | Asset | Reproducible from | Status |
 |---|---|---|---|
-| Fig. 1 — framework overview | `framework.png` | (schematic) | submitted version |
+| Fig. 1 — framework overview | `framework_v2.png` | (schematic) | submitted version |
 | Fig. 2 — class-conditional score distributions (Big-Vul, noSplits vs full) | `fig_score.pdf` | `../results/score_distributions/plot.py` + bundled per-sample scores | submitted version |
 | Extended — ROC curves (4 low-prevalence tests, full vs noSplits + zero-shot implied) | `fig_roc.pdf` | `plot_fig_roc.py` -> `fig_roc_regenerated.pdf` (bundled rows = first 2000/set; the checked-in `fig_roc.pdf` is the exact paper asset) | extended (from the full technical version), data = submitted version |
 | Extended — threshold sweep on SVD (F1(θ), default 0.5 vs calibrated θ*) | `fig_thr.pdf` | `plot_fig_thr.py` -> `fig_thr_regenerated.pdf` + `../results/threshold_sweep.json` (exact points) | extended, data = submitted version |
