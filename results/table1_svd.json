@@ -1,0 +1,142 @@
+{
+ "benchmark": "SVD-Bench official tests (time-split)",
+ "metric": "positive_class_F1 / AUC",
+ "columns": [
+  "Java",
+  "JavaScript",
+  "Python"
+ ],
+ "rows": {
+  "trivial_all_positive": {
+   "Java": 0.14,
+   "JavaScript": 0.298,
+   "Python": 0.162
+  },
+  "zero_shot_same_model": {
+   "Java": [
+    0.158,
+    0.562
+   ],
+   "JavaScript": [
+    0.29,
+    0.522
+   ],
+   "Python": [
+    0.17,
+    0.532
+   ]
+  },
+  "glm52_api_zero_shot": {
+   "Java": [
+    0.191,
+    0.61
+   ],
+   "JavaScript": [
+    0.258,
+    0.487
+   ],
+   "Python": [
+    0.157,
+    0.519
+   ]
+  },
+  "twin_sft": {
+   "v_gen": {
+    "Java": 0.31,
+    "JavaScript": 0.398,
+    "Python": 0.165
+   },
+   "v_score_theta0.5": {
+    "Java": [
+     0.317,
+     0.754
+    ],
+    "JavaScript": [
+     0.435,
+     0.701
+    ],
+    "Python": [
+     0.159,
+     0.664
+    ]
+   },
+   "v_cal_per_language": {
+    "Java": [
+     0.304,
+     0.754
+    ],
+    "JavaScript": [
+     0.421,
+     0.701
+    ],
+    "Python": [
+     0.191,
+     0.664
+    ]
+   }
+  }
+ },
+ "baseline_provenance": {
+  "published_fine_tuned_PLMs": {
+   "source": "zhang2025svdbench (arXiv:2503.01449), Fig.3",
+   "rows": {
+    "GraphCodeBERT": [
+     0.243,
+     0.472,
+     0.011
+    ],
+    "CodeT5": [
+     0.269,
+     0.394,
+     0.01
+    ],
+    "UniXcoder": [
+     0.232,
+     0.425,
+     0.013
+    ]
+   }
+  },
+  "published_fine_tuned_LLMs_original_imbalanced": {
+   "source": "zhang2025svdbench, Table 4",
+   "rows": {
+    "CodeGemma-7B(cls)": [
+     0.12,
+     0.413,
+     0.026
+    ],
+    "CodeQwen1.5-7B(cls)": [
+     0.08,
+     0.443,
+     0.011
+    ],
+    "StarCoder-2-7B(inst/cls)": [
+     0.072,
+     0.435,
+     0.001
+    ]
+   }
+  },
+  "published_fine_tuned_LLMs_downsampled_1to1": {
+   "source": "zhang2025svdbench, Table 6",
+   "rows": {
+    "CodeQwen1.5-7B(cls)": [
+     0.241,
+     0.465,
+     0.199
+    ],
+    "CodeGemma-7B(cls/inst)": [
+     0.237,
+     0.393,
+     0.201
+    ],
+    "CodeLlama-7B(cls/inst)": [
+     0.268,
+     0.337,
+     0.198
+    ]
+   }
+  },
+  "reimplemented": false
+ }
+}

@@ -1,0 +1,33 @@
+{
+ "benchmark": "REEF (rebuilt, balanced seven-language test, 1,504 functions; 74% of the published test volume)",
+ "metric": "macro_F1_over_7_languages",
+ "rows": {
+  "twin_sft": {
+   "v_gen": 0.592,
+   "v_score": 0.49,
+   "v_cal": 0.639
+  },
+  "zero_shot_same_model": 0.63,
+  "glm52_api_0shot": 0.591,
+  "trivial_all_positive": 0.667
+ },
+ "baseline_provenance": {
+  "source": "yu2025reef (arXiv:2506.07503), function-level results",
+  "fine_tuned_PLMs": {
+   "CodeT5+": 0.708,
+   "CodeT5": 0.694,
+   "UniXcoder": 0.682
+  },
+  "fine_tuned_LLMs_6.7_8B_zero_shot_prompting": {
+   "Llama3": 0.528,
+   "CodeLlama": 0.496,
+   "DeepSeek-Coder": 0.38
+  },
+  "fine_tuned_LLMs_6.7_8B_few_shot_prompting": {
+   "CodeLlama": 0.568,
+   "Llama3": 0.491,
+   "DeepSeek-Coder": 0.486
+  },
+  "reimplemented": false
+ }
+}
