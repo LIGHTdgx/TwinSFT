@@ -84,9 +84,9 @@ All numbers in this repository correspond to the submitted version of the paper.
 
 ## Figures
 
-**Fig. 1 — Framework overview** ([PDF-quality asset](figures/framework.png))
+**Fig. 1 — Framework overview** ([PDF-quality asset](figures/framework_v2.png))
 
-![framework](figures/framework.png)
+![framework](figures/framework_v2.png)
 
 Five stages: heterogeneous sources are unified to function level and **audited against every test set before training** (rules R1–R4); a benchmark-split-aware base mixture plus the TwinRank and localization families form the 61.7k corpus; one LoRA SFT run; verdicts are read generatively (V-gen) or as decision-token scores (V-score/V-cal) and scored under the three protocols.
 
