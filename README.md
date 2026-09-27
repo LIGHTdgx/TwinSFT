@@ -82,6 +82,38 @@ All numbers in this repository correspond to the submitted version of the paper.
 | −Loc | .221 | **.456** | .201 | .278 | **.648** |
 | 3B | .141 | .326 | .164 | .240 | .593 |
 
+## Figures
+
+**Fig. 1 — Framework overview** ([PDF-quality asset](figures/framework.png))
+
+![framework](figures/framework.png)
+
+Five stages: heterogeneous sources are unified to function level and **audited against every test set before training** (rules R1–R4); a benchmark-split-aware base mixture plus the TwinRank and localization families form the 61.7k corpus; one LoRA SFT run; verdicts are read generatively (V-gen) or as decision-token scores (V-score/V-cal) and scored under the three protocols.
+
+**Fig. 2 — ROC curves on the four low-prevalence official tests** ([canonical PDF](figures/fig_roc.pdf))
+
+![roc](figures/fig_roc.png)
+
+The full recipe dominates the no-splits variant on all four sets (AUC .66–.81 vs .52–.60), while the zero-shot control's implied curves hug the chance diagonal (.52–.56). This is the ranking evidence behind Table 1's claim that the gains are discriminative rather than prevalence exploitation — and the ablation behind it: without the official splits, the score loses almost all ordering information.
+
+**Fig. 3 — Class-conditional score distributions on Big-Vul** ([canonical PDF](figures/fig_score.pdf))
+
+![score](figures/fig_score.png)
+
+Without the official splits (left), scores collapse into a degenerate bimodal pattern with the classes overlapping (mean gap 0.15) — no threshold, however chosen, can trade precision against recall. With them (right), the classes separate (mean gap 0.37); the validation-fitted θ = 0.910 converts that separation into the F1 of .297 (from .213 untuned). This figure is the mechanism linking the split-aware base to calibration.
+
+**Fig. 4 — Threshold sweeps on SVD-Bench** ([canonical PDF](figures/fig_thr.pdf))
+
+![thr](figures/fig_thr.png)
+
+F1 as a function of θ for the full recipe (dotted line = default 0.5, star = per-language calibrated θ*). Java and JavaScript are near-optimal at the default threshold; Python is prevalence-miscalibrated and gains +.032 from calibration (.159 → .191 at θ* = .438). Exact sweep points: `results/threshold_sweep.json`.
+
+**Fig. 5 — Ablation F1 landscape (untuned readout)** ([canonical PDF](figures/fig_auc.pdf))
+
+![auc](figures/fig_auc.png)
+
+Positive-class F1 at θ = 0.5 for the five variants of Table 4. The full recipe leads JavaScript; −noLoc edges it on Java and REEF at the *default* threshold while trailing in AUC on four of five datasets — the operating-point/ranking dissociation that per-language calibration resolves (Table 4, lower block); −noSplits is lowest everywhere.
+
 ## Reproduction
 
 ```bash
